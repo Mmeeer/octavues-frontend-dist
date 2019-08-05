@@ -12,10 +12,7 @@ branches:
 
 install:
   - npm install
-  - npm run generate
-
-script:
-  - mkdir dist
+  - npm run build
 
 deploy:
   provider: pages
