@@ -14,6 +14,9 @@ install:
   - npm install
   - npm run generate
 
+script:
+  - mkdir dist
+
 deploy:
   provider: pages
   skip-cleanup: true
