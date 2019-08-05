@@ -75,7 +75,7 @@ export default {
               this.goNext();
             }.bind(this), 5000)
           }
-        
+
         }
       } else if(this.active){
         this.active = !this.active;
@@ -194,7 +194,7 @@ export default {
 .octa-slider{
   position: relative;
   min-height: 100vh;
-  background: url('~assets/3D cube.png');
+  background: url('~assets/3Dcube.png');
   background-size: cover;
   background-position: center;
 }
