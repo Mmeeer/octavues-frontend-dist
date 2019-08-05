@@ -91,10 +91,6 @@ export default {
       maindark: '#222222'
     }
   },
-  server: {
-    port: 3000,
-    host: '0.0.0.0'
-  },
   /*
   ** Build configuration
   */
