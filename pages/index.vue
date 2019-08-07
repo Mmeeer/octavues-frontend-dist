@@ -64,6 +64,34 @@ import Timeline from '~/components/timeline.vue';
 import Octabtn from '~/components/octa-btn.vue';
 export default {
   transition: "intro",
+  async asyncData({$axios, redirect}){
+    let response = await $axios.$get(process.env.apiUrl+"/");
+    if(response.success == true){
+      if(response.data.upcomingevent){
+        response.data.upcomingevent.maindata.date = new Date(response.data.upcomingevent.maindata.date);
+        response.data.upcomingevent.maindata.date = response.data.upcomingevent.maindata.date.getTime();
+        response.data.upcomingevent.maindata.enddate = new Date(response.data.upcomingevent.maindata.enddate);
+        response.data.upcomingevent.maindata.enddate = response.data.upcomingevent.maindata.enddate.getTime();
+      }
+      if(!response.data.theslide) {response.data.theslide = {}; response.data.theslide.slider = null};
+      if(!response.data.upcomingevent){response.data.upcomingevent = {}, response.data.upcomingevent.maindata = null; response.data.upcomingevent._id = null;}
+      if(!response.data.shortTimeline) response.data.shortTimeline = null;
+      if(!response.data.projects) response.data.projects = null;
+      if(!response.data.recentblog) response.data.recentblog = null;
+      let data = {
+        slider: response.data.theslide.slider,
+        event: { maindata: response.data.upcomingevent.maindata, id: response.data.upcomingevent._id},
+        timeline: response.data.shortTimeline,
+        recentProjects: response.data.projects,
+        recentblog : response.data.recentblog,
+      };
+      return new Promise((resolve) => {
+        setTimeout(function () {
+          resolve(data);
+        }, 4000);
+      })
+    } else redirect("/404");
+  },
   data(){
     return{
       toBlog:{
@@ -120,34 +148,6 @@ export default {
           motto: "What is the most important thing you could be working on in the world right now? ... And if you're not working on that, why aren't you?"
       }
     }
-  },
-  async asyncData({$axios, redirect}){
-    let response = await $axios.$get(process.env.apiUrl+"/");
-    if(response.success == true){
-      if(response.data.upcomingevent){
-        response.data.upcomingevent.maindata.date = new Date(response.data.upcomingevent.maindata.date);
-        response.data.upcomingevent.maindata.date = response.data.upcomingevent.maindata.date.getTime();
-        response.data.upcomingevent.maindata.enddate = new Date(response.data.upcomingevent.maindata.enddate);
-        response.data.upcomingevent.maindata.enddate = response.data.upcomingevent.maindata.enddate.getTime();
-      }
-      if(!response.data.theslide) {response.data.theslide = {}; response.data.theslide.slider = null};
-      if(!response.data.upcomingevent){response.data.upcomingevent = {}, response.data.upcomingevent.maindata = null; response.data.upcomingevent._id = null;}
-      if(!response.data.shortTimeline) response.data.shortTimeline = null;
-      if(!response.data.projects) response.data.projects = null;
-      if(!response.data.recentblog) response.data.recentblog = null;
-      let data = {
-        slider: response.data.theslide.slider,
-        event: { maindata: response.data.upcomingevent.maindata, id: response.data.upcomingevent._id},
-        timeline: response.data.shortTimeline,
-        recentProjects: response.data.projects,
-        recentblog : response.data.recentblog,
-      }
-      return new Promise((resolve) => {
-        setTimeout(function () {
-          resolve(data);
-        }, 4000)
-      })
-    } else redirect("/404");
   },
   components:{
     Slider,
