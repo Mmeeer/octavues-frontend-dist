@@ -22,19 +22,15 @@ export const mutations = {
 }
 
 export const actions = {
-  async nuxtServerInit({ commit }, { req, $axios }){
-    if(process.server){
-      if(req.headers.cookie){
-        const parsed = cookieparser.parse(req.headers.cookie);
-        $axios.setToken(parsed.token);
-        let res = await $axios.$get(process.env.apiUrl + '/admin')
-        if(res.success){
-          commit('setAuth', parsed);
-          commit('setProfile', res.data.user);
-        } else {
-          commit('removeAuth')
-        }
-      }
+  async nuxtServerInit({ commit }, { app, $axios }){
+    const parsed = {id: app.$cookies.get('id'), token: app.$cookies.get('token')};
+    $axios.setToken(parsed.token);
+    let res = await $axios.$get(process.env.apiUrl + '/admin')
+    if(res.success){
+      commit('setAuth', parsed);
+      commit('setProfile', res.data.users);
+    } else {
+      commit('removeAuth')
     }
   },
   login({ commit }, data){
