@@ -17,6 +17,7 @@
           <v-card class="elevation-2">
             <v-card-title class="headline" v-html="'<b>' + item.title + '</b>'"></v-card-title>
             <v-card-text v-html="item.content"></v-card-text>
+            <v-card-text v-html="item.date"></v-card-text>
           </v-card>
         </v-timeline-item>
         <div class="octa-image" v-if="$ua.isFromPc()">
