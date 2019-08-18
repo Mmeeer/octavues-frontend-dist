@@ -1,5 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
-
+import axios from 'axios';
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
   router: {
     base: '/octavues-frontend-dist/'
@@ -15,6 +15,22 @@ export default {
   /*
   ** Headers of the page
   */
+  generate: {
+    routes: function (callback) {
+      axios.get('https://api.octavues.me/allid/')
+      .then((res) => {
+        const routes = res.data.data.blog.map((blog) => {
+          return '/blog/' + blog._id
+        });
+        const sadfasd = res.data.data.project.map(function(project){
+          return '/project/' + project._id
+        });
+        const gonret = routes.concat(sadfasd);
+        callback(null, gonret);
+      })
+      .catch(callback);
+    }
+  },
   env: {
     baseUrl: process.env.BASE_URL || 'http://localhost:3000',
     apiUrl: 'https://api.octavues.me'
