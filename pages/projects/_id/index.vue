@@ -36,11 +36,10 @@ export default {
       title: this.project.title,
       meta: [
         { name: "og:title", property: 'og:title', content: this.project.title },
-        { name: "og:type", property: "og:title", content: "article"},
+        { name: "og:type", property: "og:type", content: "article"},
         { name: "og:description", property: 'og:description', content: this.project.description},
         { name: "og:site_name", property:"og:site_name", content:"Octavues" },
         { name: "og:video", property:"og:video", content: this.project.project[1].video },
-        { name: "og:image", property:"og:image", content: this.project.image },
         { hid: 'description', name: 'description', content: this.project.description },
         { hid: 'author', name: "author", content: "Octavues"}
       ]
