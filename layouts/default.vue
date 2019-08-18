@@ -94,7 +94,7 @@ export default {
 }
 
 a{
-  color: !importantz;
+  color: #222222;
   text-decoration: none;
 }
   body, html{
