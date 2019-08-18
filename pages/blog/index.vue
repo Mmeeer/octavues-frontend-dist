@@ -35,7 +35,7 @@ transition: "intro",
       title: this.blog.blog.title,
       meta: [
         { name: "og:title", property: 'og:title', content: this.blog.blog.title },
-        { name: "og:type", property: "og:title", content: "article"},
+        { name: "og:type", property: "og:type", content: "article"},
         { name: "og:description", property: 'og:description', content: this.blog.blog.description},
         { name: "og:site_name", property:"og:site_name", content:"Octavues" },
         { name: "og:image", property:"og:image", content: this.blog.blog.image },
