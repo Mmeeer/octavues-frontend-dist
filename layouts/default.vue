@@ -94,7 +94,7 @@ export default {
 }
 
 a{
-  color: #222222;
+  color: !importantz;
   text-decoration: none;
 }
   body, html{
@@ -159,16 +159,16 @@ a{
     -moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
     box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.3);
   }
-  .octa-social-item:first-child:hover{
-    color: #3b5998 !important;
+  .octa-social-item:first-child:hover a{
+    color: #3b5998;
     transition: all 0.3s ease;
   }
-  .octa-social-item:last-child:hover{
-    color: #00acee !important;
+  .octa-social-item:last-child:hover a{
+    color: #00acee;
     transition: all 0.3s ease;
   }
-  .octa-social-item:nth-child(2):hover{
-    color: #e4405f !important;
+  .octa-social-item:nth-child(2):hover a{
+    color: #e4405f;
     transition: all 0.3s ease;
   }
 </style>

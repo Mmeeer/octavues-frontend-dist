@@ -61,9 +61,7 @@ export default {
   z-index: 10000;
   width: 100vw;
   height: 100vh;
-  background-image: url('~assets/nav/cover.png');
-  background-position: center;
-  background-size: cover;
+  background-color: #222222;
   display: flex;
   flex-direction: column;
   justify-content: center;
