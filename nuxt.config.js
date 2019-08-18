@@ -23,7 +23,7 @@ export default {
           return '/blog/' + blog._id
         });
         const sadfasd = res.data.data.project.map(function(project){
-          return '/project/' + project._id
+          return '/projects/' + project._id
         });
         const gonret = routes.concat(sadfasd);
         callback(null, gonret);
