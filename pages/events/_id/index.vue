@@ -102,6 +102,22 @@ transition: "intro",
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 4000)
     })
+  },
+  head () {
+    return {
+      title: "Event: " + this.count.title,
+      meta: [
+        { name: "og:title", property: 'og:title', content: this.count.title },
+        { name: "og:type", property: "og:type", content: "event"},
+        { name: "og:event", property: "og:event:start_time", content: this.count.date},
+        { name: "og:event", property: "og:event:end_time", content: this.count.enddate},
+        { name: "og:description", property: 'og:description', content: this.slider[0].description},
+        { name: "og:site_name", property:"og:site_name", content:"Octavues" },
+        { name: "og:image", property:"og:image", content: this.count.img },
+        { hid: 'description', name: 'description', content: this.slider[0].description },
+        { hid: 'author', name: "author", content: "Octavues"}
+      ]
+    }
   }
 }
 </script>
