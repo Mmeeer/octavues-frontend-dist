@@ -36,7 +36,7 @@ export default {
           })
         }
         let tmp = blog.concat(project);
-        if(events && event.length){
+        if(events && events.length){
           let gonret = tmp.concat(events);
           callback(null, gonret);
         } else callback(null, tmp);
