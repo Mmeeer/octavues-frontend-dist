@@ -84,7 +84,7 @@ export default {
   }
   .octa-left{
     background-image: url('~assets/home/polygon.png');
-    background-position: right;
+    background-position: left;
     background-size: contain;
 
   }
