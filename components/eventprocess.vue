@@ -2,7 +2,7 @@
   <v-parallax src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" :height="height">
     <v-container ref="infoBox" style="align-items: center;">
       <div>
-        <v-tabs v-model="active" color="purple" dark grow slider-color="pink">
+        <v-tabs color="purple" dark grow slider-color="pink">
           <v-tab v-for="item in event" :key="item.title" ripple>{{item.title}}</v-tab>
           <v-tab-item v-for="item in event" :key="item.title">
             <v-card flat tile>
@@ -35,7 +35,7 @@ export default {
   props:['event'],
   data(){
     return{
-      height: null
+      height: null,
     }
   },
   mounted(){

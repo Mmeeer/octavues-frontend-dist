@@ -19,14 +19,27 @@ export default {
     routes: function (callback) {
       axios.get('https://api.octavues.me/allid/')
       .then((res) => {
-        const routes = res.data.data.blog.map((blog) => {
-          return '/blog/' + blog._id
-        });
-        const sadfasd = res.data.data.project.map(function(project){
-          return '/projects/' + project._id
-        });
-        const gonret = routes.concat(sadfasd);
-        callback(null, gonret);
+        let blog, project, events;
+        if(res.data.data.blog){
+          blog = res.data.data.blog.map((blog) => {
+            return '/blog/' + blog._id
+          });
+        }
+        if(res.data.data.project){
+          project = res.data.data.project.map(function(project){
+            return '/projects/' + project._id
+          });
+        }
+        if(res.data.data.event){
+          events = res.data.data.event.map(function(evnt){
+            return '/events/' + evnt._id
+          })
+        }
+        let tmp = blog.concat(project);
+        if(events && event.length){
+          let gonret = tmp.concat(events);
+          callback(null, gonret);
+        } else callback(null, tmp);
       })
       .catch(callback);
     }

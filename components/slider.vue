@@ -65,7 +65,7 @@ export default {
       this.selected = (this.selected + 1)%this.slider.length;
     },
     playVideo(val){
-      if(val > 0){
+      if(val >= 0){
         if(this.slider[val].video && this.slider[val].video.length){
           this.active = !this.active;
           if(this.active){

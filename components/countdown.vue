@@ -49,14 +49,16 @@ export default {
     z-index: 0;
 }
 .octa-coming-soon{
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .octa-event {
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
 }
 .octa-coming-soon h1 {
   color: #ffffff;
@@ -106,7 +108,9 @@ export default {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   grid-gap: 20px;
+  margin-bottom: 20px;
 }
+
 .smt-line{
   display: flex;
   flex-direction: column;

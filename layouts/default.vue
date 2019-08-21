@@ -58,11 +58,11 @@ export default {
   transition-timing-function: ease-in-out;
 }
 .intro-enter-active::before, .intro-leave-active::before {
-  background-color: #2e2e2e;
+  background-color: #222222;
 }
 .intro-enter-active::after, .intro-leave-active::after {
   top: 50%;
-  background-color: #2e2e2e;
+  background-color: #222222;
 }
 .intro-leave::before, .intro-leave::after {
   transform: scaleX(0);
@@ -93,10 +93,10 @@ export default {
   transform-origin: right;
 }
 
-a{
-  color: #222222;
-  text-decoration: none;
-}
+  .octa-social-item a {
+    color: #222222;
+    text-decoration: none;
+  }
   body, html{
     margin: 0;
     padding: 0;
@@ -104,29 +104,43 @@ a{
   h1, h2, h3, h4, h5, h6, p{
     font-family: 'Montserrat', sans-serif;
   }
-  h1{
-    font-size: 64px;
+  @media only screen and (max-width: 960px) {
+    h1 {
+      font-size: 32px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    h3{
+      font-size: 20px;
+    }
   }
-  h2{
-    font-size: 48px;
-    line-height: 48px;
-  }
-  h3{
-    font-size: 32px;
-  }
-  h4{
-    font-size: 24px;
-  }
-  h5{
-    font-size: 16px;
-    text-transform: uppercase;
-  }
-  h6{
-    font-size: 12px;
-    text-transform: uppercase;
+  @media only screen and (min-width: 961px){
+    h1{
+      font-size: 64px;
+    }
+    h2{
+      font-size: 48px;
+      line-height: 48px;
+    }
+    h3{
+      font-size: 32px;
+    }
+    h4{
+      font-size: 24px;
+    }
+    h5{
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    h6{
+      font-size: 12px;
+      text-transform: uppercase;
+    }
   }
   a{
     text-decoration: none;
+    transition: all 0.3s ease;
   }
   .octa-social{
     position: fixed;
@@ -161,14 +175,11 @@ a{
   }
   .octa-social-item:first-child:hover a{
     color: #3b5998;
-    transition: all 0.3s ease;
   }
   .octa-social-item:last-child:hover a{
     color: #00acee;
-    transition: all 0.3s ease;
   }
   .octa-social-item:nth-child(2):hover a{
     color: #e4405f;
-    transition: all 0.3s ease;
   }
 </style>

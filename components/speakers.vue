@@ -42,6 +42,7 @@
     padding-left: 5px;
 }
 .octa-speakers{
+    background-color: #222222;
     width: 100%;
     display: grid;
 }
