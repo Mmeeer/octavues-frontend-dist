@@ -80,7 +80,7 @@
 .octa-bg{
     height: auto;
     padding: 25px;
-    background-image: url("../assets/motto/cover1.png");
+    background: #4A2D6D;
     background-position: center;
     background-size: cover;
     display: flex;
