@@ -80,7 +80,7 @@
 .octa-bg{
     height: auto;
     padding: 25px;
-    background: #4A2D6D;
+    background: url("../assets/3Dcube.png");
     background-position: center;
     background-size: cover;
     display: flex;
